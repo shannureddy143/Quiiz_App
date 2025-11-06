@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Quiz System</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="quiz-container">
-    <h1>Online Quiz System</h1>
+  <!-- Start Screen -->
+  <div class="screen" id="start-screen">
+    <h1>🎓 Online Quiz App</h1>
+    <input type="text" id="username" placeholder="Enter your name..." />
+    <button onclick="startQuiz()">Start Quiz</button>
+    <button onclick="showAddQuestion()">➕ Add Question</button>
+  </div>
 
-    <div id="quiz-box" class="quiz-box">
-      <div id="question-container">
-        <h2 id="question">Question text</h2>
-        <div class="options">
-          <button class="option-btn" id="opt1" onclick="selectOption(0)"></button>
-          <button class="option-btn" id="opt2" onclick="selectOption(1)"></button>
-          <button class="option-btn" id="opt3" onclick="selectOption(2)"></button>
-          <button class="option-btn" id="opt4" onclick="selectOption(3)"></button>
-        </div>
-      </div>
-
-      <div class="navigation">
-        <button id="nextBtn" onclick="nextQuestion()">Next</button>
-      </div>
+  <!-- Add Question Screen -->
+  <div class="screen hidden" id="add-screen">
+    <h2>Add New Question</h2>
+    <input type="text" id="newQuestion" placeholder="Enter question..." />
+    <input type="text" id="opt1" placeholder="Option 1" />
+    <input type="text" id="opt2" placeholder="Option 2" />
+    <input type="text" id="opt3" placeholder="Option 3" />
+    <input type="text" id="opt4" placeholder="Option 4" />
+    <input type="number" id="correct" placeholder="Correct option (1-4)" />
+    <div class="btn-group">
+      <button onclick="addQuestion()">Add</button>
+      <button onclick="backToStart()">Back</button>
     </div>
+  </div>
 
-    <div id="result-box" class="result-box hidden">
-      <h2>Your Score</h2>
-      <p id="score"></p>
-      <button onclick="restartQuiz()">Restart Quiz</button>
+  <!-- Quiz Screen -->
+  <div class="screen hidden" id="quiz-screen">
+    <div class="header">
+      <h2 id="welcome"></h2>
+      <div id="timer">30</div>
     </div>
+    <div class="progress"><div id="progress-bar"></div></div>
+
+    <div class="question-box">
+      <h3 id="question">Question text</h3>
+      <div id="options"></div>
+    </div>
+    <button id="nextBtn" onclick="nextQuestion()">Next</button>
+  </div>
+
+  <!-- Result Screen -->
+  <div class="screen hidden" id="result-screen">
+    <h2>🎉 Quiz Completed!</h2>
+    <p id="result"></p>
+    <button onclick="restartQuiz()">Play Again</button>
+    <button onclick="backToStart()">Home</button>
   </div>
 
   <script src="script.js"></script>
