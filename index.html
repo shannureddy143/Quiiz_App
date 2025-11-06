@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Quiz System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Online Quiz System</h1>
+
+    <div id="quiz-box" class="quiz-box">
+      <div id="question-container">
+        <h2 id="question">Question text</h2>
+        <div class="options">
+          <button class="option-btn" id="opt1" onclick="selectOption(0)"></button>
+          <button class="option-btn" id="opt2" onclick="selectOption(1)"></button>
+          <button class="option-btn" id="opt3" onclick="selectOption(2)"></button>
+          <button class="option-btn" id="opt4" onclick="selectOption(3)"></button>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button id="nextBtn" onclick="nextQuestion()">Next</button>
+      </div>
+    </div>
+
+    <div id="result-box" class="result-box hidden">
+      <h2>Your Score</h2>
+      <p id="score"></p>
+      <button onclick="restartQuiz()">Restart Quiz</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
